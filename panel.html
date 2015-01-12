@@ -24,6 +24,7 @@
 	<script type="text/javascript" src="lib/moment.js"></script>
     <script type="text/javascript" src="lib/panel.js"></script>
     <script type="text/javascript" src="lib/tipsy/src/javascripts/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="lib/base64.js"></script>
 
     <style>
       body {
@@ -96,18 +97,11 @@
 	        	<div class="span4">
 				  <div class="well" style="padding-top: 10px">
 				  	   <b>Input Parameters</b><br/>
-					   <table class="table table-condensed">
-						  <tbody>
-    						   {% for item in req_parameters %}
-                               <tr>
-							       <td style="width: 40%"><span class="shorten25">{{ item.name }}</span></td>
-							       <td><span class="shorten75">{{ item.value }}</span></td>
-                               </tr>
-    						   {% endfor %}
-						  </tbody>
-						</table>
+					   <pre>
+    						   {{  req_parameters }}
+                       </pre>
 					   <a href="javascript:toggleTable('req_headers')" style="text-decoration: none;"><b>Headers</b>(<span id="req_headers_tip">show</span>)</a><br/>
-					   <table class="table table-condensed hidden" id="req_headers_table">
+					   <table class="table table-condensed " id="req_headers_table">
 						  <tbody>
     						   {% for item in req_headers %}
                                <tr>
@@ -118,7 +112,7 @@
 						  </tbody>
 						</table>
 					   <a href="javascript:toggleTable('req_cookies')" style="text-decoration: none;"><b>Cookies</b>(<span id="req_cookies_tip">show</span>)</a><br/>
-					   <table class="table table-condensed hidden" id="req_cookies_table">
+					   <table class="table table-condensed " id="req_cookies_table">
 						  <tbody>
     						   {% for item in req_cookies %}
                                <tr>
@@ -135,7 +129,7 @@
 				  <b>Output Parameters</b><br/>
 					<pre>{{ res_parameters }}</pre>
 					<a href="javascript:toggleTable('res_headers')" style="text-decoration: none;"><b>Headers</b>(<span id="res_headers_tip">show</span>)</a><br/>
-					<table class="table table-condensed hidden" id="res_headers_table">
+					<table class="table table-condensed " id="res_headers_table">
 					  <tbody>
     						   {% for item in res_headers %}
                                <tr>
